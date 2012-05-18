@@ -1,0 +1,40 @@
+DEPENDENCIES
+============
+Before installing, you must download and install the CCfits library.
+http://heasarc.gsfc.nasa.gov/fitsio/CCfits/
+
+
+INSTALLATION
+============
+
+If all goes well, dendro will install by running
+./configure
+make
+
+Which will create an executable "dendro" in the src/ directory. You
+can install dendro system wide via
+
+make install
+
+though you may need root permission to do so.
+
+
+TROUBLESHOOTING
+===============
+
+The difficulty you are most likely to run into is trying to link to
+the CCfits library. If CCFits is included in some standard location
+(like /usr/local), you should be fine. Otherwise, you will need to
+tell the configure script where to find it.
+
+For example, on one machine I have the CCfits headers in a file
+/home/cbeaumont/include/CCfits, and the shared libraries in
+/home/cbeaumon/lib/. I call configure with the following options:
+
+./configure CPPFLAGS="-I/home/cbeaumon/include/CCfits" LDFLAGS="-L /home/cbeaumon/lib -Wl,-rpath -Wl,/home/cbeaumon/lib"
+
+The CPPFLAGS argument tells the comiler which directory to look in for
+header files. The first LDFLAG argument (-L) tells the linker where to
+look for the shared library file. The second argument (-Wl to the end)
+tells the linker to hard-code this path into the executable, so
+everyone knows where to find it.

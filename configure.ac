@@ -14,8 +14,8 @@ AC_PROG_CC
 
 # Checks for libraries.
 # FIXME: Replace `main' with a function in `-lCCFits':
-AC_CHECK_LIB([CCFits], [main], [], [
-	echo "CCFits library is missing. CCFits is required for this program."
+AC_CHECK_LIB([CCfits], [main], [], [
+	echo "CCfits library is missing. CCfits is required for this program."
 	exit -1])
 
 # Checks for header files.
