@@ -10,3 +10,11 @@
 *.lai
 *.la
 *.a
+
+# automake, autoconf, configure output files
+*Makefile
+*.log
+configure.scan
+config.status
+
+src/dendro
